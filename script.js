@@ -1,10 +1,17 @@
 function renderComment(container, comment) {
-  container.innerHTML = `
-    <div class="comment">
-      <strong>${comment.author}</strong>
-      <p>${comment.body}</p>
-    </div>
-  `;
+  container.innerHTML = "";
+  const wrapper = document.createElement("div");
+  wrapper.className = "comment";
+
+  const authorEl = document.createElement("strong");
+  authorEl.textContent = comment.author;
+
+  const bodyEl = document.createElement("p");
+  bodyEl.textContent = comment.body;
+
+  wrapper.appendChild(authorEl);
+  wrapper.appendChild(bodyEl);
+  container.appendChild(wrapper);
 }
 
 const params = new URLSearchParams(window.location.search);
